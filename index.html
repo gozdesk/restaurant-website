@@ -322,8 +322,6 @@
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
       scroll-snap-type:x proximity;
-      margin:0 -28px 36px;
-      padding:0 28px 26px;
     }
     .tab-btn{ flex-shrink:0; scroll-snap-align:start; }
   }
@@ -370,6 +368,7 @@
     font-family:'Fraunces',serif; font-weight:500; color:var(--ochre); white-space:nowrap;
     font-size:1.02rem;
   }
+  .menu-item .mi-vol{ margin-right:.9em; }
 
   .menu-footnote{
     margin-top:34px; font-size:.78rem; color:rgba(244,239,226,.55);
@@ -575,20 +574,26 @@
         <p class="eyebrow">Speisekarte</p>
         <h2>Von der Vorspeise bis zum Dessert.</h2>
       </div>
-      <p>Alle Gerichte werden mit Pommes frites, Reis oder Salat serviert, sofern nicht anders angegeben. Alle Preise inklusive Mehrwertsteuer und Bedienung.</p>
+      <p>Alle Preise inklusive Mehrwertsteuer und Bedienung.</p>
     </div>
 
     <div class="tabs" id="menu-tabs">
       <button class="tab-btn active" data-target="vorspeisen">Vorspeisen</button>
-      <button class="tab-btn" data-target="salate-gyros">Salate &amp; Gyros</button>
+      <button class="tab-btn" data-target="salate">Salate</button>
+      <button class="tab-btn" data-target="gyros">Gyros</button>
       <button class="tab-btn" data-target="grill">Vom Grill</button>
       <button class="tab-btn" data-target="hackfleisch">Aus Hackfleisch</button>
       <button class="tab-btn" data-target="deutsch">Deutsche Gerichte</button>
       <button class="tab-btn" data-target="vegetarisch">Vegetarisch</button>
       <button class="tab-btn" data-target="meer-senior-kinder">Meer, Senioren &amp; Kinder</button>
       <button class="tab-btn" data-target="burger">Burger</button>
-      <button class="tab-btn" data-target="getraenke-dessert">Getränke &amp; Desserts</button>
+      <button class="tab-btn" data-target="warme-getraenke">Warme Getränke</button>
+      <button class="tab-btn" data-target="desserts">Desserts</button>
       <button class="tab-btn" data-target="tagesangebote">Tagesangebote</button>
+      <button class="tab-btn" data-target="alkoholfrei">Alkoholfreie Getränke</button>
+      <button class="tab-btn" data-target="biere">Biere</button>
+      <button class="tab-btn" data-target="weinkarte">Weinkarte</button>
+      <button class="tab-btn" data-target="spirituosen">Spirituosen &amp; Aperitif</button>
     </div>
 
     <!-- Vorspeisen -->
@@ -613,7 +618,7 @@
     </div>
 
     <!-- Salate & Gyros -->
-    <div class="menu-panel" id="salate-gyros">
+    <div class="menu-panel" id="salate">
       <div class="menu-grid">
         <div class="menu-item"><span class="mi-name">Dorfsalat mit Brot<span class="mi-desc">Tomaten, Gurken, Zwiebeln, Oliven, Paprika, Peperoni, Schafskäse</span></span><span class="mi-price">12,90 €</span></div>
         <div class="menu-item"><span class="mi-name">Krautsalat</span><span class="mi-price">5,50 €</span></div>
@@ -621,12 +626,18 @@
         <div class="menu-item"><span class="mi-name">Beilagensalat</span><span class="mi-price">5,00 €</span></div>
         <div class="menu-item"><span class="mi-name">Salatteller mit Putenstreifen<span class="mi-desc">Gemischter Salat mit panierten Putenstreifen</span></span><span class="mi-price">14,50 €</span></div>
         <div class="menu-item"><span class="mi-name">Salat mit Gyros</span><span class="mi-price">14,50 €</span></div>
-        <div class="menu-item"><span class="mi-name">Gyros klein</span><span class="mi-price">15,40 €</span></div>
-        <div class="menu-item"><span class="mi-name">Gyros groß</span><span class="mi-price">17,40 €</span></div>
-        <div class="menu-item"><span class="mi-name">Paprika-Pilz-Gyros klein</span><span class="mi-price">16,50 €</span></div>
-        <div class="menu-item"><span class="mi-name">Paprika-Pilz-Gyros groß</span><span class="mi-price">18,50 €</span></div>
+      </div>
+    </div>
+
+    <!-- Gyros -->
+    <div class="menu-panel" id="gyros">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Gyros klein<span class="mi-desc">Mit Pommes frites oder Reis und Salat</span></span><span class="mi-price">15,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Gyros groß<span class="mi-desc">Mit Pommes frites oder Reis und Salat</span></span><span class="mi-price">17,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Paprika-Pilz-Gyros klein<span class="mi-desc">Mit Pommes frites oder Reis und Salat</span></span><span class="mi-price">16,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Paprika-Pilz-Gyros groß<span class="mi-desc">Mit Pommes frites oder Reis und Salat</span></span><span class="mi-price">18,50 €</span></div>
         <div class="menu-item"><span class="mi-name">Pita Gyros<span class="mi-desc">Gefüllt mit Gyros, Tomaten, Zwiebeln, Zaziki und Pommes</span></span><span class="mi-price">13,90 €</span></div>
-        <div class="menu-item"><span class="mi-name">Gyros-Cheese-Burger</span><span class="mi-price">10,30 €</span></div>
+        <div class="menu-item"><span class="mi-name">Gyros-Cheese-Burger<span class="mi-desc">Käse, saure Gurken, Ketchup, Mayonnaise, Pommes frites</span></span><span class="mi-price">10,30 €</span></div>
       </div>
     </div>
 
@@ -644,6 +655,7 @@
         <div class="menu-item"><span class="mi-name">Peristeri Platte<span class="mi-desc">2 Putenspieße, 2 Bifteki, 2 Soutzoukakia, 2 Souvlaki, 2 Lammkotelett, Gyros</span></span><span class="mi-price">67,00 €</span></div>
         <div class="menu-item"><span class="mi-name">Athen Platte<span class="mi-desc">2 Putenspieße, 2 Bifteki, 2 Soutzoukakia, 2 Souvlaki, 2 Rindersteaks, Gyros</span></span><span class="mi-price">71,00 €</span></div>
       </div>
+      <p class="menu-panel-note">Alle Hauptgerichte werden mit Pommes frites oder Reis, und Salat serviert, sofern nicht anders angegeben.</p>
     </div>
 
     <!-- Hackfleisch -->
@@ -653,6 +665,7 @@
         <div class="menu-item"><span class="mi-name">Soutzoukakia<span class="mi-desc">4 Hackfleischröllchen mit scharfer, hausgemachter Tomatensoße</span></span><span class="mi-price">18,50 €</span></div>
         <div class="menu-item"><span class="mi-name">Soutzoukakia<span class="mi-desc">4 Hackfleischröllchen</span></span><span class="mi-price">17,50 €</span></div>
       </div>
+      <p class="menu-panel-note">Alle Hauptgerichte werden mit Pommes frites oder Reis, und Salat serviert, sofern nicht anders angegeben.</p>
     </div>
 
     <!-- Deutsche Gerichte -->
@@ -665,6 +678,7 @@
         <div class="menu-item"><span class="mi-name">Jägerschnitzel<span class="mi-desc">Vom Schwein</span></span><span class="mi-price">17,80 €</span></div>
         <div class="menu-item"><span class="mi-name">Putenschnitzel<span class="mi-desc">Mit Rahmsoße</span></span><span class="mi-price">18,40 €</span></div>
       </div>
+      <p class="menu-panel-note">Alle Hauptgerichte werden mit Pommes frites oder Reis, und Salat serviert, sofern nicht anders angegeben.</p>
       <p class="menu-panel-note">Soße extra 2,00 € · Ketchup oder Mayonnaise 0,50 €</p>
     </div>
 
@@ -691,6 +705,7 @@
         <div class="menu-item"><span class="mi-name">2 Soutzoukakia mit Soße<span class="mi-desc">Mit scharfer, hausgemachter Tomatensoße, Pommes frites</span></span><span class="mi-price">12,20 €</span></div>
         <div class="menu-item"><span class="mi-name">Senioren Souvlaki<span class="mi-desc">1 Schweinefleischspieß</span></span><span class="mi-price">12,20 €</span></div>
       </div>
+      <p class="menu-panel-note">Alle Hauptgerichte werden mit Pommes frites oder Reis, und Salat serviert, sofern nicht anders angegeben.</p>
       <p class="menu-panel-note" style="margin-top:30px;">Für unsere kleinen Gäste</p>
       <div class="menu-grid">
         <div class="menu-item"><span class="mi-name">Kinderschnitzel<span class="mi-desc">Mit Bratensoße, Beilage und Salat</span></span><span class="mi-price">11,00 €</span></div>
@@ -715,8 +730,7 @@
     </div>
 
     <!-- Getränke & Desserts -->
-    <div class="menu-panel" id="getraenke-dessert">
-      <p class="menu-panel-note">Warme Getränke</p>
+    <div class="menu-panel" id="warme-getraenke">
       <div class="menu-grid">
         <div class="menu-item"><span class="mi-name">Freddo Espresso</span><span class="mi-price">3,50 €</span></div>
         <div class="menu-item"><span class="mi-name">Tasse Kaffee</span><span class="mi-price">2,50 €</span></div>
@@ -732,7 +746,10 @@
         <div class="menu-item"><span class="mi-name">Chococino</span><span class="mi-price">3,20 €</span></div>
         <div class="menu-item"><span class="mi-name">Glas Tee<span class="mi-desc">Schwarzer Tee, Pfefferminztee, Kamillentee oder Früchtetee</span></span><span class="mi-price">2,30 €</span></div>
       </div>
-      <p class="menu-panel-note" style="margin-top:30px;">Desserts</p>
+    </div>
+
+    <!-- Desserts -->
+    <div class="menu-panel" id="desserts">
       <div class="menu-grid">
         <div class="menu-item"><span class="mi-name">Griechischer Sahnejoghurt<span class="mi-desc">Mit Honig und Walnüssen</span></span><span class="mi-price">6,00 €</span></div>
         <div class="menu-item"><span class="mi-name">Eis<span class="mi-desc">Vanille, Schokolade und Frucht mit Sahne</span></span><span class="mi-price">6,00 €</span></div>
@@ -759,6 +776,130 @@
         <div class="menu-item"><span class="mi-name">Rahmschnitzel<span class="mi-desc">Vom Schwein, paniert, mit Pfeffer-Rahmsauce</span></span><span class="mi-price"></span></div>
       </div>
       <p class="menu-panel-note">Alle Schnitzel mit Pommes frites, Spätzle und Salat — 15,70 €</p>
+    </div>
+
+    <!-- Alkoholfreie Getränke -->
+    <div class="menu-panel" id="alkoholfrei">
+      <p class="menu-panel-note">Preise je 0,2 l / 0,4 l, sofern nicht anders angegeben</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Tafelwasser</span><span class="mi-price">2,50 € / 3,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Apfelsaft</span><span class="mi-price">3,10 € / 4,10 €</span></div>
+        <div class="menu-item"><span class="mi-name">Orangensaft</span><span class="mi-price">3,10 € / 4,10 €</span></div>
+        <div class="menu-item"><span class="mi-name">Maracuja</span><span class="mi-price">3,10 € / 4,10 €</span></div>
+        <div class="menu-item"><span class="mi-name">Schwarze Johannisbeere</span><span class="mi-price">3,10 € / 4,10 €</span></div>
+        <div class="menu-item"><span class="mi-name">Kirsch</span><span class="mi-price">3,00 € / 4,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Schorle nach Wunsch</span><span class="mi-price">3,00 € / 4,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Spezi</span><span class="mi-price">3,00 € / 4,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Coca Cola</span><span class="mi-price">3,00 € / 4,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Fanta</span><span class="mi-price">3,00 € / 4,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Sprite</span><span class="mi-price">3,00 € / 4,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Stilles Wasser<span class="mi-desc">0,5 l Flasche</span></span><span class="mi-price">3,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Mineralwasser<span class="mi-desc">0,7 l Flasche</span></span><span class="mi-price">5,10 €</span></div>
+      </div>
+    </div>
+
+    <!-- Biere -->
+    <div class="menu-panel" id="biere">
+      <p class="menu-panel-note">Baisinger Bier Manufaktur, Familie Teufel</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Bier vom Fass<span class="mi-desc">Baisinger Spezial</span></span><span class="mi-price"><span class="mi-vol">0,3 l</span>3,30 € / <span class="mi-vol">0,5 l</span>4,30 €</span></div>
+        <div class="menu-item"><span class="mi-name">Pils vom Fass<span class="mi-desc">Baisinger Pils</span></span><span class="mi-price"><span class="mi-vol">0,3 l</span>3,70 €</span></div>
+        <div class="menu-item"><span class="mi-name">Hefe Weizenbier<span class="mi-desc">Baisinger Teufels Weisse</span></span><span class="mi-price"><span class="mi-vol">0,5 l</span>4,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Hefe Weizenbier Dunkel<span class="mi-desc">Baisinger Teufels Weisse Dunkel</span></span><span class="mi-price"><span class="mi-vol">0,5 l</span>4,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Kristall Weizenbier<span class="mi-desc">Baisinger Teufels Weisse Kristall</span></span><span class="mi-price"><span class="mi-vol">0,5 l</span>4,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Alkoholfreies Weizenbier<span class="mi-desc">Baisinger</span></span><span class="mi-price"><span class="mi-vol">0,5 l</span>4,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Alkoholfreies Clausthaler<span class="mi-desc">Baisinger</span></span><span class="mi-price"><span class="mi-vol">0,3 l</span>3,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Radler<span class="mi-desc">Baisinger</span></span><span class="mi-price"><span class="mi-vol">0,3 l</span>3,30 € / <span class="mi-vol">0,5 l</span>4,30 €</span></div>
+        <div class="menu-item"><span class="mi-name">Cola Weizen<span class="mi-desc">Baisinger</span></span><span class="mi-price"><span class="mi-vol">0,5 l</span>4,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Russ<span class="mi-desc">Baisinger</span></span><span class="mi-price"><span class="mi-vol">0,5 l</span>4,40 €</span></div>
+      </div>
+    </div>
+
+    <!-- Weinkarte -->
+    <div class="menu-panel" id="weinkarte">
+      <p class="menu-panel-note">Offene Weine — griechisch, je 0,1 l / 0,25 l / 0,5 l</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Cambas<span class="mi-desc">Trockener Weißwein</span></span><span class="mi-price">2,70 / 5,00 / 8,90 €</span></div>
+        <div class="menu-item"><span class="mi-name">Demestica<span class="mi-desc">Herber Gebirgswein</span></span><span class="mi-price">2,70 / 5,00 / 8,90 €</span></div>
+        <div class="menu-item"><span class="mi-name">Retsina<span class="mi-desc">Geharzter Weißwein</span></span><span class="mi-price">2,50 / 4,40 / 7,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Imigliko<span class="mi-desc">Lieblich, mild</span></span><span class="mi-price">2,70 / 5,00 / 8,90 €</span></div>
+        <div class="menu-item"><span class="mi-name">Samos<span class="mi-desc">Süßer Likörwein</span></span><span class="mi-price">2,90 / 5,20 / 9,10 €</span></div>
+        <div class="menu-item"><span class="mi-name">Retsina Vasiliki<span class="mi-desc">Flasche 0,5 Liter</span></span><span class="mi-price">7,50 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Offene Weine — griechisch rot, je 0,1 l / 0,25 l / 0,5 l</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Naousa<span class="mi-desc">Trocken, aromatisch</span></span><span class="mi-price">2,90 / 5,20 / 9,10 €</span></div>
+        <div class="menu-item"><span class="mi-name">Cambas<span class="mi-desc">Trockener Rotwein</span></span><span class="mi-price">2,70 / 5,00 / 8,90 €</span></div>
+        <div class="menu-item"><span class="mi-name">Demestica<span class="mi-desc">Herber Gebirgswein</span></span><span class="mi-price">2,70 / 5,00 / 8,90 €</span></div>
+        <div class="menu-item"><span class="mi-name">Imigliko<span class="mi-desc">Lieblich, mild</span></span><span class="mi-price">2,70 / 5,00 / 8,90 €</span></div>
+        <div class="menu-item"><span class="mi-name">Mavrodaphne<span class="mi-desc">Süßer Likörwein</span></span><span class="mi-price">2,90 / 5,20 / 9,10 €</span></div>
+        <div class="menu-item"><span class="mi-name">Cambas<span class="mi-desc">Trockener Rosewein</span></span><span class="mi-price">2,70 / 5,00 / 8,90 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Württemberger Weine, je 0,1 l / 0,25 l / 1,0 l</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Trollinger mit Lemberger<span class="mi-desc">Rotwein</span></span><span class="mi-price">2,70 / 5,00 / 17,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Trollinger<span class="mi-desc">Rotwein</span></span><span class="mi-price">2,70 / 5,00 / 17,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Schwarzriesling<span class="mi-desc">Weißherbst</span></span><span class="mi-price">2,70 / 5,00 / 17,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Kerner / Riesling</span><span class="mi-price">2,70 / 5,00 / 17,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Weinschorle<span class="mi-desc">Rot, Weiß oder Rose</span></span><span class="mi-price">3,90 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Flaschenweine Rot</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Mikri Arkouda<span class="mi-desc">Merlot &amp; Syrah, rote Früchte &amp; würzig, aus Tyrnavos, trocken</span></span><span class="mi-price">19,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Mega Spileo<span class="mi-desc">40% Mavrodaphne, 40% Cabernet Sauvignon, 20% Agioritiko, aus Chalkidiki, Thessaloniki, trocken</span></span><span class="mi-price">24,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Oreinos Helios<span class="mi-desc">Agiorgitiko und Syrah, Aromen von Kirschkernen &amp; Blaubeeren, aus Peloponnese, trocken</span></span><span class="mi-price">17,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Lantides Goldvine<span class="mi-desc">Cabernet Sauvignon, Aromen von Vanille und roten Früchten, aus Peloponnese, trocken</span></span><span class="mi-price">22,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Besigheimer Felsengarten<span class="mi-desc">Trollinger mit Lemberger, Kirsch- und Beerenaromen, halbtrocken</span></span><span class="mi-price">18,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Paranga<span class="mi-desc">Merlot, Syrah, Xinomavro, reift 8 Monate, Zimt, Nelken &amp; grüner Pfeffer, aus Makedonien, trocken</span></span><span class="mi-price">20,50 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Flaschenweine Weiß</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Malagousia<span class="mi-desc">Aromen von Zitronen- und Orangenblüten, aus Chalkidiki, Thessaloniki, trocken</span></span><span class="mi-price">29,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Oreinos Helios<span class="mi-desc">Moschofilero, Sauvignon Blanc, Aromen von Rosen, Zitronenblüten, Lychees, Jasmin, aus Peloponnese</span></span><span class="mi-price">17,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Mikri Arkouda<span class="mi-desc">Chardonnay, Asirtiko, Malagousia, Aromen von Zitrus- und Steinfrüchten, aus Tyrnavos, trocken</span></span><span class="mi-price">18,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Lantides Goldvine<span class="mi-desc">Chardonnay, Aromen von Pfirsich, Wildblumen, Zitronenblüten, aus Peloponnese, trocken</span></span><span class="mi-price">22,50 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Flaschenweine Rose</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Oreinos Helios<span class="mi-desc">Agiorgitiko, Aromen von roten Beeren, kirschiger Geschmack, aus Peloponnese, trocken</span></span><span class="mi-price">17,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Paranga<span class="mi-desc">80% Xinomavro, 20% Merlot, Aromen von weißem Pfirsich und weißen Blumen, aus Makedonien, halbtrocken</span></span><span class="mi-price">19,00 €</span></div>
+      </div>
+    </div>
+
+    <!-- Spirituosen & Aperitif -->
+    <div class="menu-panel" id="spirituosen">
+      <p class="menu-panel-note">Schnäpse, je 2 cl</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Ouzo</span><span class="mi-price">2,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Williams</span><span class="mi-price">2,20 €</span></div>
+        <div class="menu-item"><span class="mi-name">Jägermeister</span><span class="mi-price">2,20 €</span></div>
+        <div class="menu-item"><span class="mi-name">Obstler</span><span class="mi-price">2,20 €</span></div>
+        <div class="menu-item"><span class="mi-name">Metaxa *****</span><span class="mi-price">2,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Tequila Sierra</span><span class="mi-price">2,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Ramazzotti</span><span class="mi-price">2,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Tsipouro</span><span class="mi-price">2,40 €</span></div>
+        <div class="menu-item"><span class="mi-name">Mastiha Liqueur</span><span class="mi-price">2,40 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Aperitif</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Aperol Spritz</span><span class="mi-price">7,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Lillet Wild Berry</span><span class="mi-price">7,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Lillet Pfirsich</span><span class="mi-price">7,00 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Sekt &amp; Prosecco, je 0,1 l / 0,7 l</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Sekt</span><span class="mi-price">3,50 € / 21,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Prosecco</span><span class="mi-price">3,50 € / 21,00 €</span></div>
+      </div>
+      <p class="menu-panel-note" style="margin-top:30px;">Longdrinks, je 4 cl</p>
+      <div class="menu-grid">
+        <div class="menu-item"><span class="mi-name">Havana mit Cola</span><span class="mi-price">6,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Malibu</span><span class="mi-price">6,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Wodka Absolut</span><span class="mi-price">6,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Jack Daniel's mit Cola</span><span class="mi-price">6,50 €</span></div>
+        <div class="menu-item"><span class="mi-name">Jim Beam Black Label mit Cola</span><span class="mi-price">6,00 €</span></div>
+        <div class="menu-item"><span class="mi-name">Captain Morgan</span><span class="mi-price">6,00 €</span></div>
+      </div>
     </div>
 
     <p class="menu-footnote">Angaben zu Zusatzstoffen und Allergenen erhalten Sie gerne auf Nachfrage bei unserem Team vor Ort.</p>
