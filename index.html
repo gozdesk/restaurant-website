@@ -103,8 +103,8 @@
     text-decoration:none;
   }
   .brandmark svg{ width:38px; height:38px; flex-shrink:0; }
-  header.scrolled .brandmark, header.scrolled nav a{ color:var(--aegean-deep); }
-  header:not(.scrolled) .brandmark, header:not(.scrolled) nav a{ color:#fff; }
+  header.scrolled .brandmark, header.scrolled nav a, header.scrolled .nav-toggle{ color:var(--aegean-deep); }
+  header:not(.scrolled) .brandmark, header:not(.scrolled) nav a, header:not(.scrolled) .nav-toggle{ color:#fff; }
   nav{ display:flex; gap:30px; align-items:center; }
   nav a{
     text-decoration:none;
@@ -122,13 +122,56 @@
     border-radius:100px;
     font-weight:700;
   }
-  .nav-toggle{ display:none; }
+  .nav-toggle{
+    display:none;
+    background:none; border:none; cursor:pointer;
+    color:inherit; padding:6px; margin:-6px;
+    width:34px; height:34px;
+    flex-shrink:0;
+  }
+  .nav-toggle svg{ width:100%; height:100%; }
+  .nav-toggle .icon-close{ display:none; }
+  .nav-toggle.open .icon-open{ display:none; }
+  .nav-toggle.open .icon-close{ display:block; }
+
   @media (max-width:860px){
-    nav .nav-links{ display:none; }
-    .nav-toggle{
-      display:block; background:none; border:none; cursor:pointer;
-      color:inherit; font-size:1.6rem; line-height:1;
+    .nav-toggle{ display:block; }
+    nav .nav-links{
+      position:fixed;
+      top:0; right:0;
+      height:100svh;
+      width:min(78vw, 320px);
+      background:var(--aegean-deep);
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-start;
+      gap:6px !important;
+      padding:96px 32px 32px;
+      transform:translateX(100%);
+      transition:transform .35s ease;
+      box-shadow:-20px 0 40px rgba(0,0,0,.25);
     }
+    nav .nav-links.open{ transform:translateX(0); }
+    nav .nav-links a{
+      color:#fff !important;
+      width:100%;
+      padding:14px 0;
+      border-bottom:1px solid rgba(244,239,226,.15);
+      font-size:1rem;
+    }
+    nav .nav-links a.nav-call{
+      margin-top:14px;
+      border-bottom:none;
+      text-align:center;
+      padding:12px 18px;
+    }
+    .nav-scrim{
+      display:none;
+      position:fixed; inset:0;
+      background:rgba(18,29,38,.5);
+      z-index:99;
+    }
+    .nav-scrim.open{ display:block; }
   }
 
   /* ---------- Hero ---------- */
@@ -272,6 +315,17 @@
     margin-bottom:36px;
     border-bottom:1px solid rgba(244,239,226,.2);
     padding-bottom:26px;
+  }
+  @media (max-width:700px){
+    .tabs{
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x proximity;
+      margin:0 -28px 36px;
+      padding:0 28px 26px;
+    }
+    .tab-btn{ flex-shrink:0; scroll-snap-align:start; }
   }
   .tab-btn{
     background:transparent;
@@ -424,15 +478,20 @@
     Sportheim Kusterdingen
   </a>
   <nav>
-    <div class="nav-links" style="display:flex; gap:30px; align-items:center;">
+    <div class="nav-links" id="nav-links" style="display:flex; gap:30px; align-items:center;">
       <a href="#ueber-uns">Über uns</a>
       <a href="#speisekarte">Speisekarte</a>
       <a href="#galerie">Galerie</a>
       <a href="#kontakt">Öffnungszeiten</a>
       <a href="tel:+4970719773091" class="nav-call">Anrufen</a>
     </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
   </nav>
 </header>
+<div class="nav-scrim" id="nav-scrim"></div>
 
 <div id="top"></div>
 <section class="hero">
@@ -460,7 +519,7 @@
 <section id="ueber-uns">
   <div class="wrap intro">
     <div class="intro-photo">
-      <img src="images/innenraum.png" alt="Gemütlicher Innenraum des Sportheim Kusterdingen mit gedeckten Holztischen">
+      <img src="images/innenraum.jpg" alt="Gemütlicher Innenraum des Sportheim Kusterdingen mit gedeckten Holztischen">
     </div>
     <div class="intro-text">
       <p class="eyebrow">Unsere Geschichte</p>
@@ -723,8 +782,8 @@
     <h2 style="font-weight:500; font-size:clamp(1.9rem,3.4vw,2.6rem);">Drinnen gemütlich, draußen am Spielfeld</h2>
     <div class="gallery-grid">
       <img class="g-tall" src="images/hero-terrasse.webp" alt="Terrasse des Sportheim Kusterdingen mit Blick auf den Sportplatz">
-      <img class="g-wide" src="images/terrasse-blumen.png" alt="Terrasse mit Blumenschmuck im Sommer">
-      <img class="g-wide" src="images/innenraum.png" alt="Innenraum mit gedeckten Tischen">
+      <img class="g-wide" src="images/terrasse-blumen.jpg" alt="Terrasse mit Blumenschmuck im Sommer">
+      <img class="g-wide" src="images/innenraum.jpg" alt="Innenraum mit gedeckten Tischen">
     </div>
   </div>
 </section>
@@ -810,6 +869,31 @@
   };
   window.addEventListener('scroll', onScroll);
   onScroll();
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  const navScrim = document.getElementById('nav-scrim');
+  const closeMenu = () => {
+    navToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+    navScrim.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+  const openMenu = () => {
+    navToggle.classList.add('open');
+    navLinks.classList.add('open');
+    navScrim.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  navScrim.addEventListener('click', closeMenu);
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => { if (window.innerWidth > 860) closeMenu(); });
 
   // Menu tabs
   const tabButtons = document.querySelectorAll('.tab-btn');
